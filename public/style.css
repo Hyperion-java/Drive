@@ -1,0 +1,158 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+#file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#file-table th,
+#file-table td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+}
+
+#file-table th {
+    background-color: #1e1e1e;
+}
+
+#file-table td {
+    background-color: #262626;
+}
+
+.mass-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mass-actions button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.mass-actions button:hover {
+    background-color: #45a049;
+}
+
+.mass-actions button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.mass-actions button i {
+    margin-right: 8px;
+}
+
+#file-list-ul tr {
+    background-color: #353535;
+    transition: background-color 0.3s ease;
+}
+
+#file-list-ul tr:hover {
+    background-color: #444;
+}
+
+#file-list-ul td button {
+    padding: 8px 15px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+#file-list-ul td button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#file-list-ul td button.delete-btn {
+    background-color: #f44336;
+}
+
+#file-list-ul td button.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+#file-list-ul td button.download-btn {
+    background-color: #008CBA;
+}
+
+#file-list-ul td button.download-btn:hover {
+    background-color: #006F8E;
+}
+
+#progressBox {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #333;
+    overflow: hidden;
+}
+
+#uploadProgress {
+    height: 100%;
+    width: 0%;
+    background-color: #4CAF50;
+}
+
+#uploadProgressText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: bold;
+}
+
+/* Added gap between Select Files and Upload Files button */
+#uploadSection #uploadFilesBtn {
+    margin-top: 10px; /* Adds a gap of 10px */
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive - File Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Drive - File Management</h1>
+    <div id="uploadSection">
+        <!-- Select File Button -->
+        <button id="selectFileBtn" onclick="document.getElementById('file-input').click()">
+            <i class="fas fa-folder-open"></i> Select Files
+        </button>
+        
+        <!-- Hidden File Input -->
+        <input type="file" id="file-input" name="file" style="display:none" onchange="showUploadButton()" multiple>
+        
+        <!-- Upload Files Button -->
+        <button id="uploadFilesBtn" onclick="uploadFiles()" style="display:none;">
+            <i class="fas fa-upload"></i> Upload Files
+        </button>
+    </div>
+
+    <div id="massActions" class="mass-actions">
+        <button id="massSelectBtn" onclick="massSelect()" disabled>
+            <i class="fas fa-check-circle"></i> Mass Select
+        </button>
+        <button id="massDownloadBtn" onclick="massDownload()" disabled>
+            <i class="fas fa-download"></i> Mass Download
+        </button>
+        <button id="massDeleteBtn" onclick="massDelete()" disabled>
+            <i class="fas fa-trash-alt"></i> Mass Delete
+        </button>
+    </div>
+
+    <table id="file-table">
+        <thead>
+            <tr>
+                <th style="width: 5%;">Select</th>
+                <th>File Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="file-list-ul"></tbody>
+    </table>
+
+    <div id="progressContainer" style="display:none; position: fixed; bottom: 20px; right: 20px; width: 200px;">
+        <div id="progressBox" style="border: 2px solid #444; width: 100%; height: 30px; border-radius: 25px; position: relative;">
+            <div id="uploadProgress" style="height: 100%; border-radius: 25px; background-color: #4CAF50;"></div>
+            <span id="uploadProgressText" style="position: absolute; width: 100%; text-align: center; top: 50%; transform: translateY(-50%); color: white; font-weight: bold;">0%</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
