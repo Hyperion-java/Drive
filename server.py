@@ -107,4 +107,3 @@ flask_thread.start()
 
 # Start listening for stop command in the main thread
 listen_for_stop()
-
