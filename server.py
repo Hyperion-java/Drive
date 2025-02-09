@@ -8,6 +8,8 @@ from datetime import datetime
 from flask import Flask, request, jsonify, send_from_directory, abort, redirect
 from werkzeug.utils import secure_filename
 import threading
+import os
+import signal
 
 # Load configuration
 with open("config.json") as config_file:
@@ -86,11 +88,23 @@ def run_scheduler():
         schedule.run_pending()
         time.sleep(1)
 
-scheduler_thread = threading.Thread(target=run_scheduler, daemon=True)
-scheduler_thread.start()
-
-if __name__ == '__main__':
+def run_flask():
     host = config["host"]
     port = config["port"]
     print(f"Server running at http://{host}:{port}")
     app.run(host=host, port=port, debug=True)
+
+def listen_for_stop():
+    while True:
+        command = input()
+        if command.strip().lower() == "#stop":
+            print("Shutting down the server...")
+            os.kill(os.getpid(), signal.SIGINT)
+
+# Start Flask server in a separate thread
+flask_thread = threading.Thread(target=run_flask, daemon=True)
+flask_thread.start()
+
+# Start listening for stop command in the main thread
+listen_for_stop()
+
